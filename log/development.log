@@ -453,3 +453,193 @@ Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. P
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.6ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:28:49 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stories"
+  Rendered stories/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories"
+Completed 200 OK in 439ms (Views: 421.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/stories/new" for 92.237.108.173 at 2017-02-10 00:28:54 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered stories/_form.html.erb (65.4ms)
+  Rendered stories/new.html.erb within layouts/application (68.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 145ms (Views: 108.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/stories" for 92.237.108.173 at 2017-02-10 00:29:03 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HrNYW8xheEIGFIgg+kYrgtnGF9ldI/8UF8JqJlDj8gvtnbZLQbsuDV6+leRaiIZ0dy3SyOESBUNGjUB6HT1OMg==", "category_id"=>"1", "story"=>{"story_img"=>#<ActionDispatch::Http::UploadedFile:0x007f37e928e808 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-22354-17ptpbt.jpg>, @original_filename="village.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"story[story_img]\"; filename=\"village.jpg\"\r\nContent-Type: image/jpeg\r\n">, "headline"=>"sdf", "summary"=>"fsf", "writer"=>"sf", "url"=>"sfd"}, "commit"=>"Create Story"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: file -b --mime '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-11y87lb.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-hir5wk.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-hir5wk.jpg[0]'
+Command :: convert '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-hir5wk.jpg[0]' -auto-orient -resize "250x350>" '/tmp/39ce57f40912bd22688a2ffafd0a555420170210-22354-rk3o9d'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-hir5wk.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-hir5wk.jpg[0]'
+Command :: convert '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-hir5wk.jpg[0]' -auto-orient -resize "325x475>" '/tmp/39ce57f40912bd22688a2ffafd0a555420170210-22354-mq44ta'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-22354-1oykje0.jpg'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stories" ("headline", "summary", "writer", "url", "story_img_file_name", "story_img_content_type", "story_img_file_size", "story_img_updated_at", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["headline", "sdf"], ["summary", "fsf"], ["writer", "sf"], ["url", "sfd"], ["story_img_file_name", "village.jpg"], ["story_img_content_type", "image/jpeg"], ["story_img_file_size", 119198], ["story_img_updated_at", "2017-02-10 00:29:03.885722"], ["user_id", 1], ["category_id", 1], ["created_at", "2017-02-10 00:29:04.199856"], ["updated_at", "2017-02-10 00:29:04.199856"]]
+  [1m[36m (12.8ms)[0m  [1mcommit transaction[0m
+Redirected to https://gubgook-lekan12.c9users.io/
+Completed 302 Found in 342ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:29:04 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "stories"
+  [1m[36mStory Load (0.2ms)[0m  [1mSELECT "stories".* FROM "stories"  ORDER BY created_at DESC[0m
+  Rendered stories/index.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stories?category=Politics" for 92.237.108.173 at 2017-02-10 00:30:57 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#index as HTML
+  Parameters: {"category"=>"Politics"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT 1  [["name", "Politics"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "stories" WHERE "stories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mStory Load (0.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."category_id" = ?  ORDER BY created_at DESC  [["category_id", 1]]
+  Rendered stories/index.html.erb within layouts/application (12.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Completed 200 OK in 67ms (Views: 60.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stories/1" for 92.237.108.173 at 2017-02-10 00:31:01 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStory Load (0.3ms)[0m  [1mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+NameError (uninitialized constant Story::Review):
+  app/controllers/stories_controller.rb:16:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.6ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:34:19 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stories"
+  [1m[36mStory Load (0.2ms)[0m  [1mSELECT "stories".* FROM "stories"  ORDER BY created_at DESC[0m
+  Rendered stories/index.html.erb within layouts/application (78.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 518ms (Views: 501.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:36:12 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "stories"
+  [1m[36mStory Load (0.2ms)[0m  [1mSELECT "stories".* FROM "stories"  ORDER BY created_at DESC[0m
+  Rendered stories/index.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 53ms (Views: 51.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:37:13 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "stories"
+  [1m[36mStory Load (0.2ms)[0m  [1mSELECT "stories".* FROM "stories"  ORDER BY created_at DESC[0m
+  Rendered stories/index.html.erb within layouts/application (2.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 59ms (Views: 57.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:52:00 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stories"
+  [1m[36mStory Load (0.2ms)[0m  [1mSELECT "stories".* FROM "stories"  ORDER BY created_at DESC[0m
+  Rendered stories/index.html.erb within layouts/application (13.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 2173ms (Views: 2155.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/application.self-0fbbf889d2f6b9bff57da3ffd2a3fb17e47d1ff59cf678f04724bfe633489ebd.css?body=1" for 92.237.108.173 at 2017-02-10 00:52:02 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/stories/1" for 92.237.108.173 at 2017-02-10 00:52:18 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStory Load (0.3ms)[0m  SELECT  "stories".* FROM "stories" WHERE "stories"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+NameError (uninitialized constant Story::Review):
+  app/controllers/stories_controller.rb:16:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.1ms)
+
+
+Started GET "/stories/new" for 92.237.108.173 at 2017-02-10 00:52:46 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered stories/_form.html.erb (67.8ms)
+  Rendered stories/new.html.erb within layouts/application (71.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 143ms (Views: 124.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:52:52 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "stories"
+  [1m[36mStory Load (0.2ms)[0m  [1mSELECT "stories".* FROM "stories"  ORDER BY created_at DESC[0m
+  Rendered stories/index.html.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
