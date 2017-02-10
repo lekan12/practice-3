@@ -186,3 +186,270 @@ Migrating to AddCategoryIdToStories (20170209224253)
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:04:23 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stories"
+  Rendered stories/index.html.erb within layouts/application (5.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 4690ms (Views: 4668.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/stories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 92.237.108.173 at 2017-02-10 00:04:28 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/stories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 92.237.108.173 at 2017-02-10 00:04:28 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/sign_up" for 92.237.108.173 at 2017-02-10 00:04:40 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (5.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (178.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Completed 200 OK in 232ms (Views: 222.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 92.237.108.173 at 2017-02-10 00:04:55 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XfzwKmAOOQwjLSt3KlHfETMVvaw+JsGQNcuQXwTawvGu0h467dRvQ3uHNrOKn3Lnnf54vYIXO8dkhLoDSQR+yA==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$11$W.azMkgAZ.7PvLOnB9di9.bFD78Q/KCR4khvtVaOL982CmxfmtdbG"], ["created_at", "2017-02-10 00:04:55.447279"], ["updated_at", "2017-02-10 00:04:55.447279"]]
+  [1m[35m (10.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-02-10 00:04:55.460244"], ["current_sign_in_at", "2017-02-10 00:04:55.460244"], ["last_sign_in_ip", "92.237.108.173"], ["current_sign_in_ip", "92.237.108.173"], ["sign_in_count", 1], ["updated_at", "2017-02-10 00:04:55.461152"], ["id", 1]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+Redirected to https://gubgook-lekan12.c9users.io/
+Completed 302 Found in 233ms (ActiveRecord: 20.5ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:04:55 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "stories"
+  Rendered stories/index.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+Completed 200 OK in 74ms (Views: 72.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/stories/new" for 92.237.108.173 at 2017-02-10 00:04:59 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered stories/_form.html.erb (26.9ms)
+  Rendered stories/new.html.erb within layouts/application (28.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 124ms (Views: 83.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/stories" for 92.237.108.173 at 2017-02-10 00:05:13 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/VzicdkvlzMwSELRc0vHJYEtbYjFnOrafJMXzq/CSvsOcgxhVPXBfGjiXxXThWrTL8aomXmtEI0t3D2S4hz2wg==", "category_id"=>"1", "story"=>{"story_img"=>#<ActionDispatch::Http::UploadedFile:0x007f977f258960 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-17128-n9fdd7.jpg>, @original_filename="village.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"story[story_img]\"; filename=\"village.jpg\"\r\nContent-Type: image/jpeg\r\n">, "headline"=>"ffds", "summary"=>"sfs", "writer"=>"dfss", "url"=>"ffs"}, "commit"=>"Create Story"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+Paperclip::Error (Story model missing required attr_accessor for 'story_img_file_name'):
+  app/controllers/stories_controller.rb:29:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentStoryImgToStories (20170210001004)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "stories" ADD "story_img_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "stories" ADD "story_img_content_type" varchar
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "stories" ADD "story_img_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "stories" ADD "story_img_updated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170210001004"]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:11:14 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stories"
+  Rendered stories/index.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (1.3ms)[0m  SELECT "categories".* FROM "categories"
+Completed 200 OK in 500ms (Views: 479.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/stories/new" for 92.237.108.173 at 2017-02-10 00:11:19 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered stories/_form.html.erb (99.0ms)
+  Rendered stories/new.html.erb within layouts/application (106.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 234ms (Views: 169.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/stories" for 92.237.108.173 at 2017-02-10 00:11:29 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HPuHYeLIfET9LGCbA92dhOpde0cndFBh1iuPB/TIA/Xv1WlxbxIqC6WGfV+jEzByRLa+VptFqjaHZKVbuRa/zA==", "category_id"=>"1", "story"=>{"story_img"=>#<ActionDispatch::Http::UploadedFile:0x007f23e94f2dd8 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-18053-158719c.jpg>, @original_filename="village.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"story[story_img]\"; filename=\"village.jpg\"\r\nContent-Type: image/jpeg\r\n">, "headline"=>"fgdf", "summary"=>"fdgf", "writer"=>"dfgdf", "url"=>"dgg"}, "commit"=>"Create Story"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: file -b --mime '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-18053-13at388.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-18053-haxgj3.jpg[0]' 2>/dev/null
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 0.2ms)
+
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  app/controllers/stories_controller.rb:29:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.7ms)
+
+
+Started POST "/stories" for 92.237.108.173 at 2017-02-10 00:13:12 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HPuHYeLIfET9LGCbA92dhOpde0cndFBh1iuPB/TIA/Xv1WlxbxIqC6WGfV+jEzByRLa+VptFqjaHZKVbuRa/zA==", "category_id"=>"1", "story"=>{"story_img"=>#<ActionDispatch::Http::UploadedFile:0x007f23e9836a08 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-18053-1dffit5.jpg>, @original_filename="village.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"story[story_img]\"; filename=\"village.jpg\"\r\nContent-Type: image/jpeg\r\n">, "headline"=>"fgdf", "summary"=>"fdgf", "writer"=>"dfgdf", "url"=>"dgg"}, "commit"=>"Create Story"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Command :: file -b --mime '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-18053-wcpso8.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-18053-18b303f.jpg[0]' 2>/dev/null
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  app/controllers/stories_controller.rb:29:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.1ms)
+
+
+Started POST "/stories" for 92.237.108.173 at 2017-02-10 00:13:33 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HPuHYeLIfET9LGCbA92dhOpde0cndFBh1iuPB/TIA/Xv1WlxbxIqC6WGfV+jEzByRLa+VptFqjaHZKVbuRa/zA==", "category_id"=>"1", "story"=>{"story_img"=>#<ActionDispatch::Http::UploadedFile:0x007f23dca45018 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-18053-n2uq4x.jpg>, @original_filename="village.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"story[story_img]\"; filename=\"village.jpg\"\r\nContent-Type: image/jpeg\r\n">, "headline"=>"fgdf", "summary"=>"fdgf", "writer"=>"dfgdf", "url"=>"dgg"}, "commit"=>"Create Story"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: file -b --mime '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-18053-8gxh07.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-18053-1noy8jq.jpg[0]' 2>/dev/null
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.2ms)
+
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  app/controllers/stories_controller.rb:29:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.1ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:19:15 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stories"
+  Rendered stories/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+Completed 200 OK in 444ms (Views: 424.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/stories/new" for 92.237.108.173 at 2017-02-10 00:19:24 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered stories/_form.html.erb (90.4ms)
+  Rendered stories/new.html.erb within layouts/application (94.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 192ms (Views: 145.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/stories" for 92.237.108.173 at 2017-02-10 00:19:33 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"unRb8Bvak8UmZFkRtOjYyuKRh8gwbOlqJ1hqtHPjL2VJWrXglgDFin7ORNUUJnU8THpC2YxdEz12F0DoPj2TXA==", "category_id"=>"1", "story"=>{"story_img"=>#<ActionDispatch::Http::UploadedFile:0x007f6126919f68 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-19002-1uibycf.jpg>, @original_filename="village.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"story[story_img]\"; filename=\"village.jpg\"\r\nContent-Type: image/jpeg\r\n">, "headline"=>"dgf", "summary"=>"fgd", "writer"=>"gfg", "url"=>"dgdf"}, "commit"=>"Create Story"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: file -b --mime '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-19002-23cthr.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-19002-1x4rftr.jpg[0]' 2>/dev/null
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms)
+
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  app/controllers/stories_controller.rb:29:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.2ms)
+
+
+Started GET "/" for 92.237.108.173 at 2017-02-10 00:22:09 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "stories"
+  Rendered stories/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Completed 200 OK in 509ms (Views: 488.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/stories/new" for 92.237.108.173 at 2017-02-10 00:22:12 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered stories/_form.html.erb (57.9ms)
+  Rendered stories/new.html.erb within layouts/application (61.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 141ms (Views: 102.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/stories" for 92.237.108.173 at 2017-02-10 00:22:21 +0000
+Cannot render console from 92.237.108.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uUkCrxPdlRA1QxDOtm7BnsvAE83VfiDO2GiGegdK67VKZ+y/ngfDX23pDQoWoGxoZSvW3GlP2pmJJ6wmSpRXjA==", "category_id"=>"1", "story"=>{"story_img"=>#<ActionDispatch::Http::UploadedFile:0x007f7b513b8458 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-19919-1t726ts.jpg>, @original_filename="village.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"story[story_img]\"; filename=\"village.jpg\"\r\nContent-Type: image/jpeg\r\n">, "headline"=>"dsfd", "summary"=>"dfsd", "writer"=>"sf", "url"=>"fsf"}, "commit"=>"Create Story"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: PATH=/opt/ImageMagick/bin:$PATH; file -b --mime '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-19919-1t3naft.jpg'
+Command :: PATH=/opt/ImageMagick/bin:$PATH; identify -format '%wx%h,%[exif:orientation]' '/tmp/813f8ce580f276558ce9e5093468b1ab20170210-19919-11yxa8i.jpg[0]' 2>/dev/null
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 0.1ms)
+
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  app/controllers/stories_controller.rb:29:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.6ms)
