@@ -10,12 +10,13 @@
 
 		<div class="story-info">
 
-			<h2 class="news-headline"><%= @story.title %></h2>
-			<h3 class="story-writer"><span>From</span> <%= @story.author %></h3>
+			<h2 class="news-headline"><%= @story.headline %></h2>
+			<h3 class="story-writer"><span>By:</span> <%= @story.writer %></h3>
 			<h2 class="avg-rating">Average Rating</h2>
 			<div class="average-review-rating" data-score=<%= @average_review %>></div>
 			<span class="number-of-reviews">Based on <%= @story.reviews.count %> reviews</span>
-			<p class="story-desc"><%= @story.description %></p>
+			<p class="story-summary"><%= @story.summary %></p>
+			<h3 class="story-url"><span>Url:</span> <%= @story.url %></h3>
 
 		</div>
 	</div>
