@@ -10,7 +10,7 @@
 
 		<% @stories.each do |story| %>
 
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<a href="/stories/<%= story.id %>">
 					<%= image_tag story.story_img.url(:story_index), class: "story" %>
 				</a>
@@ -22,4 +22,3 @@
 	
 <% end %>	
 
-<%= link_to "Add New", new_story_path %>s

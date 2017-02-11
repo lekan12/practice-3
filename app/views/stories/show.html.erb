@@ -3,7 +3,9 @@
 	<div class="col-md-4">
 
 		<%= image_tag @story.story_img.url(:story_show), class: "story-show" %>
-
+	<div>
+				<%= link_to "Add Review", new_story_review_path(@story), class: "btn-custom" %>
+			</div>
 	</div>
 
 	<div class="col-md-8">
@@ -17,33 +19,6 @@
 			<span class="number-of-reviews">Based on <%= @story.reviews.count %> reviews</span>
 			<p class="story-summary"><%= @story.summary %></p>
 			<h3 class="story-url"><span>Url:</span> <%= @story.url %></h3>
-
-		</div>
-	</div>
-
-
-</div>
-
-<div class="row">
-
-	<div class="col-md-4">
-
-		<div class="reviews">
-
-			<!-- Where the reviews/ratings will go -->
-			<h1>Reviews</h1>
-			<%= render @story.reviews %>
-
-			<div>
-				<%= link_to "Add Review", new_story_review_path(@story), class: "btn-custom" %>
-			</div>
-
-		</div>	
-
-	</div>
-
-</div>
-
 <div class="links btn-group">
 
 	<%= link_to "Back", root_path, class: "btn btn-custom" %>
@@ -60,6 +35,36 @@
 	<% end %>	
 
 </div>	
+
+		</div>
+	</div>
+
+
+</div>
+
+<div class="row">
+
+	<div class="col-md-4">
+			
+
+		<div class="reviews">
+
+			<!-- Where the reviews/ratings will go -->
+			<h1>Reviews</h1>
+		
+			
+			
+			<%= render @story.reviews %>
+
+			
+
+
+		</div>	
+
+	</div>
+
+</div>
+
 
 
 <script>
