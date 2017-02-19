@@ -2,8 +2,9 @@
 	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>
 	<%= f.file_field :story_img %>
 	<%= f.input :headline, label: "Headline Title" %>
-	<%= f.input :summary %>
+	<%= f.input :summary %> 
 	<%= f.input :writer %>
+	<%= f.input :publication %>
 	<%= f.input :url %>
 	<%= f.button :submit, :class => 'btn-custom2' %>
 <% end %>

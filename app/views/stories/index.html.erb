@@ -1,3 +1,5 @@
+<h2>All Categories</h2>
+
 <h1 class="current-category"><%= params[:category] %></h1>
 
 <% if @stories.count == 0 %>
@@ -13,8 +15,11 @@
 			<div class="col-md-4">
 				<a href="/stories/<%= story.id %>">
 					<%= image_tag story.story_img.url(:story_index), class: "story" %>
+					<h3><%= story.headline %></h3> 
 				</a>
-			</div>	
+				</div>	
+			
+			
 
 		<% end %>
 

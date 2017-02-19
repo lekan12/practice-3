@@ -3,22 +3,22 @@
 	<div class="col-md-4">
 
 		<%= image_tag @story.story_img.url(:story_show), class: "story-show" %>
-	<div>
-				<%= link_to "Add Review", new_story_review_path(@story), class: "btn-custom" %>
+	
+				<%= link_to "Review this article", new_story_review_path(@story), class: "btn-custom" %>
 			</div>
-	</div>
-
 	<div class="col-md-8">
 
 		<div class="story-info">
 
-			<h2 class="news-headline"><%= @story.headline %></h2>
+			<h2 class="news-headline"></h2>
 			<h3 class="story-writer"><span>By:</span> <%= @story.writer %></h3>
+			<h3 class="story-publication"><span>from:</span> <%= @story.publication %></h3>
 			<h2 class="avg-rating">Average Rating</h2>
 			<div class="average-review-rating" data-score=<%= @average_review %>></div>
 			<span class="number-of-reviews">Based on <%= @story.reviews.count %> reviews</span>
 			<p class="story-summary"><%= @story.summary %></p>
-			<h3 class="story-url"><span>Url:</span> <%= @story.url %></h3>
+			<h3 class="story-url"><span>Full story at:</span> <%= @story.url %></h3>
+			<p class="uploaded at"><span>submitted for review on:</span><%= @story.created_at.to_formatted_s(:short) %></p>
 <div class="links btn-group">
 
 	<%= link_to "Back", root_path, class: "btn btn-custom" %>
@@ -29,18 +29,41 @@
 
 			<%= link_to "Edit", edit_story_path(@story), class: "btn btn-custom" %>
 			<%= link_to "Delete", story_path(@story), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+			
 
 		<% end %>
-
+		
 	<% end %>	
 
 </div>	
 
+	<%= link_to "Add your comment", new_story_chat_path(@story), class: "btn-custom" %>
+<div class="row">
+
+	<div class="col-md-8">
+		
+
+		<div class="chats">
+
+
+			<!-- Where the comments will go -->
+			<h3>Comments</h3>
+	
+		
+		<%= render @story.chats %>	
+
+
+		</div>	
+
+	</div>
+
+</div>
 		</div>
 	</div>
 
 
 </div>
+
 
 <div class="row">
 
@@ -50,13 +73,13 @@
 		<div class="reviews">
 
 			<!-- Where the reviews/ratings will go -->
-			<h1>Reviews</h1>
+			<h3>Reviews</h3>
 		
 			
 			
 			<%= render @story.reviews %>
 
-			
+		
 
 
 		</div>	

@@ -146,11 +146,17 @@ p.alert, p.notice {
 /* story styles */
 
 .story {
-	height: 250px;
-	width: 350px;
-	margin-bottom: 40px;
+	height: 320px;
+	width: 380px;
+	margin-bottom: 0px;
+	margin-top: 10px;
 	@include background-tile;
 	
+.story-headline {
+		margin-top: 40px;
+		font-size: 3em;
+		
+	}	
 }
 
 .story-show {
@@ -167,7 +173,7 @@ position: absolute;	margin-left: 120px;
 
 	.story-headline {
 		margin-top: 0;
-		font-size: 2em;
+		font-size: 3em;
 	}
 
 	.avg-rating {
@@ -250,6 +256,46 @@ position: absolute;	margin-left: 120px;
 	}
 
 	.new-review {
+		padding-top: 58px;
+		
+	}
+
+}
+
+/* chats styles */
+
+.chats {
+position: absolute;	margin-left: 120px;
+	@include background-tile;
+	
+
+  width: 650px;
+
+  left: -5%;
+  top: 10%;
+   margin-top: 40px;
+  margin-left: 18px; /*half the width*/
+
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 2em;
+	}
+
+	.chat {
+		border-bottom: 1px solid gainsboro;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+
+		.chat-comment {
+			font-size: 1.05em;
+			line-height: 1.5;
+		}
+
+	}
+
+	.new-chat {
 		padding-top: 58px;
 		
 	}

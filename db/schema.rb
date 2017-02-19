@@ -11,12 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210223806) do
+ActiveRecord::Schema.define(version: 20170218193216) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "story_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "story_id"
+  end
+
+  create_table "debates", force: :cascade do |t|
+    t.text     "discuss"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "story_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -41,6 +65,8 @@ ActiveRecord::Schema.define(version: 20170210223806) do
     t.string   "story_img_content_type"
     t.integer  "story_img_file_size"
     t.datetime "story_img_updated_at"
+    t.string   "publication"
+    t.string   "username"
   end
 
   create_table "users", force: :cascade do |t|

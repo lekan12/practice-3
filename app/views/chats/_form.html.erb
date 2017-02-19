@@ -1,0 +1,7 @@
+<%= simple_form_for([@story, @story.chats.build]) do |f| %>
+	<div id="chat-form">
+	
+	</div>
+	<%= f.input :comment %>
+	<%= f.button :submit, :class => "btn-custom2" %>
+<% end %>

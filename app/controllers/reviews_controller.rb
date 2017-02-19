@@ -5,6 +5,12 @@ class ReviewsController < ApplicationController
 
 	def new
 		@review = Review.new
+	if current_user 
+		@review = Review.where(user_id: current_user.id, story_id: params[:story_id]).first_or_initialize 
+    if @review.id.present? 
+      render 'edit' 
+    end 
+	end 
 	end
 
 	def create

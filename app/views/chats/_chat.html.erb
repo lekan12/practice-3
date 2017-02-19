@@ -1,0 +1,21 @@
+<div class="chat">
+
+	<p class="story-chat"><%= chat.comment %></p>
+
+
+	<% if user_signed_in? %>
+
+		<% if chat.user_id == current_user.id %>
+
+			<div class="links btn-group">
+
+				<%= link_to "Edit", edit_story_chat_path(chat.story, chat), class: "btn btn-custom" %>
+				<%= link_to "Delete", story_chat_path(chat.story, chat), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+
+			</div>
+		
+		<% end %>	
+
+	<% end %>
+
+</div>		
