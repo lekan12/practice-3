@@ -1,3 +1,20 @@
+<% if !user_signed_in? %>
+<div class="jumbotron">
+	<h1>Review The News</h1>
+	<p>Give your opinion on the quality and truthfulness of news articles and stories. You decide if it really is fake news!</p>
+	<p><%= link_to "Sign up to submit a news story for review, rate and comment on a news story", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+</div>
+<% else %>
+<div class="jumbotron">
+	<h1>gubgook. Review The News.</h1>
+	<p>scroll down to see the most recent news articles submitted for review</p>
+
+</div>
+<% end %>
+
+
+
+
 <h2>All Categories</h2>
 
 <h1 class="current-category"><%= params[:category] %></h1>
@@ -12,7 +29,7 @@
 
 		<% @stories.each do |story| %>
 
-			<div class="col-md-4">
+			<div class="col-md-12">
 				<a href="/stories/<%= story.id %>">
 					<%= image_tag story.story_img.url(:story_index), class: "story" %>
 					<h3><%= story.headline %></h3> 
@@ -25,5 +42,7 @@
 
 	</div>
 	
-<% end %>	
+<% end %>
+
+
 

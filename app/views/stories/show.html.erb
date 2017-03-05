@@ -48,10 +48,13 @@
 
 			<!-- Where the comments will go -->
 			<h3>Comments</h3>
-	
+		<% if @chats.blank? %>
+			<h3>No comments just yet, would you like to be the first!</h3>
+			<%= link_to "Add Comment", new_story_chat_path(@story), class: "btn btn-danger" %>
+			<% else %>
 		
 		<%= render @story.chats %>	
-
+<% end %>
 
 		</div>	
 
@@ -75,11 +78,14 @@
 			<!-- Where the reviews/ratings will go -->
 			<h3>Reviews</h3>
 		
-			
+			<% if @reviews.blank? %>
+			<h3>No reviews just yet, would you like to add the first!</h3>
+			<%= link_to "Write Review", new_story_review_path(@story), class: "btn btn-danger" %>
+			<% else %>
 			
 			<%= render @story.reviews %>
 
-		
+		    <% end %>
 
 
 		</div>	

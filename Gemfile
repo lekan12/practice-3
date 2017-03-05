@@ -20,6 +20,9 @@ gem 'devise', '~> 4.2'
 
 gem 'jquery-rails'
 
+gem 'domainatrix', '~> 0.0.11'
+
+
 gem 'turbolinks'
 
 gem 'jbuilder', '~> 2.0'

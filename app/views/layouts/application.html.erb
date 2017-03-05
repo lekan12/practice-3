@@ -13,7 +13,7 @@
 		<div class="container">
 
 			<div class="navbar-header">
-				<%= link_to "Reviews", root_path, class: "navbar-brand" %>
+				<%= link_to "All Stories", root_path, class: "navbar-brand" %>
 			</div>
 
 			<ul class="nav navbar-nav">
@@ -24,6 +24,13 @@
 					<li><%= link_to "Log In", new_user_session_path %></li>
 				<% end %>
 			</ul>
+			<%= form_tag search_stories_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+			<p> 
+			<%= text_field_tag :search, params[:search], class: "form-control" %>
+			<%= submit_tag "Search", name: nil, class: "btn btn-default" %> 
+			</p>
+			<% end %>
+			
 
 			<ul class="nav navbar-nav navbar-right">
 

@@ -2,25 +2,29 @@ class StoriesController < ApplicationController
     
     before_action :find_story, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, only: [:new, :edit]
-
+	
+	
 	def index
 		if params[:category].blank?
 			@stories = Story.all.order("created_at DESC")
 		else
 			@category_id = Category.find_by(name: params[:category]).id
 			@stories = Story.where(:category_id => @category_id).order("created_at DESC")
-			
+		
 		end
 		
 	end
 
 	def show
-		if @story.reviews.blank?
-			@average_review = 0
-		else
-			@average_review = @story.reviews.average(:rating).round(2)
-		end
+		 @reviews =  @story.reviews.order("created_at DESC")
+    unless @stories.present?
+     @avg_review = 0
+    else
+     @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0
+    end
 	end
+	
+	
 
 	def new
 		@story = current_user.stories.build
